@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+    //2845
     public static void main(String[] args) {
 
         //누가 파티에 왔나
@@ -21,11 +22,7 @@ public class Main {
         int squareByParty =20;
 
         //기사 참가자수 5
-        int article1 = 99;
-        int article2 = 101;
-        int article3 = 1000;
-        int article4 = 0;
-        int article5 = 97;
+        int article1 = 99,article2 = 101, article3 = 1000, article4 = 0, article5 = 97;
 
         //기사 참가자수 list에 담아줌
         List<Integer> integers = articleCount(article1, article2, article3, article4, article5);
