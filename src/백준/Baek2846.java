@@ -1,10 +1,8 @@
 package 백준;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-public class baek2846 {
+public class Baek2846 {
     public static void main(String[] args) {
 
         //수열의 크기

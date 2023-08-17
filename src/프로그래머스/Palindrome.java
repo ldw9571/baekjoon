@@ -3,7 +3,7 @@ package 프로그래머스;
 import java.util.ArrayList;
 import java.util.List;
 
-public class palindrome {
+public class Palindrome {
     public static void main(String[] args) {
         int min = 1, max = 300;
         List<Integer> list = new ArrayList<>();

@@ -1,12 +1,9 @@
 package 프로그래머스;
 
-import 백준.Main;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
-public class darts {
+public class Darts {
 
 
     public static void main(String[] args) {
