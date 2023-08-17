@@ -17,8 +17,10 @@ public class AccuseResult {
 
     private static void allCompare(String[] park, String[] routes) {
 
-        //parkcheck완료
         checkPark(park);
+
+
+        //routeCheck완료
         int[] ints = checkRoutes(routes);
         for (int i : ints) {
             System.out.println("i = " + i);
