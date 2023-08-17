@@ -8,55 +8,91 @@ public class Problem03 {
         String text = "가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123";
         int n = 20;
         List<String> strings = solution3(text, n);
-
+        System.out.println(text.length());
         for (int i = 0; i < strings.size(); i++) {
-            System.out.println("strings.get(i) = " + strings.get(i));
+           System.out.println("strings.get(i) = " + strings.get(i));
         }
 
 
     }
 
     public static List<String> solution3(String text, int n) {
-        //영문 : 97 ~ 122
-        //숫자 : 48 ~ 57
+        //getType시  한글 : 5, 영어: 2, 숫자 : 9
         StringBuffer buffer = new StringBuffer();
         List<String> string = new ArrayList<>();
 
         int total = 0;
-        //한글 2 영어숫자 1
 
         //string 길이
         int length = text.length();
 
+        int[] ints = numberX(total, text, n);
+        int quotient = ints[0];
         for (int i = 0; i < length; i++) {
             char compareChar = text.charAt(i);
-            int compareInt = compareChar;
-            if (compareInt >= 97 && compareInt <= 122) {
-                total += 1;
-            } else if (compareInt >= 48 && compareInt <= 57) {
-                total += 1;
-            } else {
-                total += 2;
-            }
-            StringBuffer append = buffer.append(compareChar);
+            int type = Character.getType(compareChar);
+            switch (type){
+                case 2 : total=total+1; break;
+                case 5 : total=total+2; break;
+                case 9 : total=total+1; break;
 
-            boolean isTrue = changeString(total, n);
-            if (isTrue){
-                string.add(append.toString());
+            }
+
+
+
+            buffer.append(text.charAt(i));
+            if (total >= n) {
+                string.add(String.valueOf(buffer));
+                buffer = new StringBuffer();
+                total = 0;
             }
 
         }
 
+        int stringLength=0;
+        for (int i = 0; i < string.size(); i++) {
+            String s = string.get(i);
+            int length1 = s.length();
+            stringLength+=length1;
+        }
+
+
+        //나머지 값들 string에 집어넣기
+
+        buffer = new StringBuffer();
+        for (int j = stringLength; j <length ; j++) {
+            buffer.append(text.charAt(j));
+        }
+        string.add(String.valueOf(buffer));
 
         return string;
     }
 
-    //아스키코드 비교해서 글자 숫자범위 확인
-    private static boolean changeString(int total,int n) {
-        if (total>n){
-            return true;
-        }
-        return false;
+    //나머지 몫 구하기
+    private static int[] numberX(int total, String text,int n) {
+        int length = text.length();
+        int[] newInt = new int[2];
+        for (int i = 0; i < length; i++) {
+            char compareChar = text.charAt(i);
+            int type = Character.getType(compareChar);
+            switch (type) {
+                case 2:
+                    total = total + 1;
+                    break;
+                case 5:
+                    total = total + 2;
+                    break;
+                case 9:
+                    total = total + 1;
+                    break;
 
+            }
+        }
+        int quotient = total / n;
+        int remainder = total % n;
+
+        newInt[0] = quotient;
+        newInt[1] = remainder;
+        return newInt;
     }
 }
