@@ -1,10 +1,12 @@
+package 기업코딩테스트;
+
 import java.util.Arrays;
 
 public class Problem01 {
 
     public static void main(String[] args) {
-        int[] numbers = {3,30,5,34,9,1};
-//        int[] numbers = {11,6,10,0};
+//        int[] numbers = {3,30,5,34,9,1};
+        int[] numbers = {11,6,10,0};
 
 //        for (int i = 0; i < numbers.length; i++) {
         String s = solution1(numbers);
@@ -18,27 +20,31 @@ public class Problem01 {
 
     public static String solution1(int[] numbers) {
         String str = "";
+        int[] result = new int[numbers.length-1];
+        //배열 수만큼 동작
 
-        for (int j = 0; j <= numbers.length; j++) {
-
+        for (int j = 0; j < result.length; j++) {
+            System.out.println("numbers = " + j);
             int first = numbers[0];
             StringBuffer buffer = new StringBuffer();
 
 
-            //배열 수만큼 동작
             int li = 0;
             for (int i = 1; i < numbers.length; i++) {
                 int number = numbers[i];
+                System.out.println("numbersw2222222222 = " + i);
+
 //                System.out.println("first = " + first);
 //                System.out.println("number = " + number);
                 String s = changeChar(first, number);
+                first=Integer.parseInt(s);
                 li = Integer.parseInt(s);
-                System.out.println("s = "+ s);
-                System.out.println("-------------- = ");
+//                System.out.println("s = "+ s);
+//                System.out.println("--------------");
             }
             StringBuffer append = buffer.append(li);
             str += String.valueOf(append);
-            System.out.println("str = " + str);
+//            System.out.println("들어가는값 = " + str);
             numbers = removeElement(numbers, li);
 
         }
@@ -54,47 +60,51 @@ public class Problem01 {
 
     private static String changeChar(int first, int last) {
 
-//        System.out.println("first = " + first);
-//        System.out.println("last = " + last);
         //int -> string 으로 변환
-        String f = String.valueOf(first);
-        String l = String.valueOf(last);
+        String firstValue = String.valueOf(first);
+        String compareValue = String.valueOf(last);
+//        System.out.println("firstValue = " + firstValue);
+//        System.out.println("compareValue = " + compareValue);
+//        System.out.println("=----------------------");
 
         //길이 확인
-        int lengthF = f.length();
-        int lengthL = l.length();
+        int lengthF = firstValue.length();
+        int lengthL = compareValue.length();
 
         //길이 짧은 수 구하기
-        int min = Math.min(lengthF, lengthL);
+        boolean b = checkMin(lengthF, lengthL);
 
-        //비교값 길이 같을 때
-        if (lengthF == lengthL) {
-            for (int i = 0; i < lengthF; i++) {
-                int i1 = f.charAt(i);
-                int i2 = l.charAt(i);
-                if (i1 != i2) {
-                    int min1 = Math.min(i1, i2);
-                    if (min1 == i1) {
-                        return f;
-                    } else {
-                        return l;
-                    }
-                }
-            }
-        } else {
-            for (int i = 0; i < min; i++) {
-                int i1 = f.charAt(min - 1);
-                int i2 = l.charAt(min - 1);
-                int min1 = Math.min(i1, i2);
-                if ((char) min1 == f.charAt(0)) {
-                    return f;
+
+       if (firstValue.charAt(0) == compareValue.charAt(0)) {
+            if (b) {
+                if (compareValue.charAt(1) > compareValue.charAt(0)) {
+                    return firstValue;
                 } else {
-                    return l;
+//                    System.out.println("compareValue = " + compareValue);
+                    return compareValue;
                 }
+            } else {
+                if (firstValue.charAt(1) > firstValue.charAt(0)) {
+                    return firstValue;
+                } else {
+                    return compareValue;
+                }
+
             }
 
+        }else if (firstValue.charAt(0) < compareValue.charAt(0)) {
+            return firstValue;
+        }  else {
+            return compareValue;
         }
-        return "";
+    }
+
+    private static boolean checkMin(int lengthF, int lengthL) {
+        int min = Math.min(lengthF, lengthL);
+        if(min==lengthF){
+            return true;
+        }
+        return false;
 
     }
 
