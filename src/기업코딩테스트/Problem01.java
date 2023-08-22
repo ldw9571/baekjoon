@@ -1,3 +1,5 @@
+package 기업코딩테스트;
+
 import java.util.Arrays;
 
 public class Problem01 {
