@@ -1,5 +1,3 @@
-package 기업코딩테스트;
-
 import java.util.Arrays;
 
 public class Problem01 {
@@ -75,7 +73,7 @@ public class Problem01 {
         boolean b = checkMin(lengthF, lengthL);
 
 
-       if (firstValue.charAt(0) == compareValue.charAt(0)) {
+        if (firstValue.charAt(0) == compareValue.charAt(0)) {
             if (b) {
                 if (compareValue.charAt(1) > compareValue.charAt(0)) {
                     return firstValue;
