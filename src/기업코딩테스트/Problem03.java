@@ -8,9 +8,12 @@ public class Problem03 {
         String text = "가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123";
         int n = 20;
         List<String> strings = solution3(text, n);
+
+
+
         System.out.println(text.length());
         for (int i = 0; i < strings.size(); i++) {
-           System.out.println("strings.get(i) = " + strings.get(i));
+            System.out.println("strings.get(i) = " + strings.get(i));
         }
 
 
@@ -21,30 +24,63 @@ public class Problem03 {
         StringBuffer buffer = new StringBuffer();
         List<String> string = new ArrayList<>();
 
+
         int total = 0;
+        int addPoint = 0;
+
 
         //string 길이
         int length = text.length();
 
         int[] ints = numberX(total, text, n);
         int quotient = ints[0];
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < length-1; i++) {
             char compareChar = text.charAt(i);
             int type = Character.getType(compareChar);
-            switch (type){
-                case 2 : total=total+1; break;
-                case 5 : total=total+2; break;
-                case 9 : total=total+1; break;
+            switch (type) {
+                case 2:
+                    addPoint = 1;
+                    break;
+                case 5:
+                    addPoint = 2;
+                    break;
+                case 9:
+                    addPoint = 1;
+                    break;
+            }
+            total = total + addPoint;
+            addPoint = 0;
+            buffer.append(text.charAt(i));
 
+            int nextPoint = 0;
+
+
+            int nextNum = Character.getType(text.charAt(i + 1));
+
+            switch (nextNum) {
+                case 2:
+                    nextPoint = 1;
+                    break;
+                case 5:
+                    nextPoint = 2;
+                    break;
+                case 9:
+                    nextPoint = 1;
+                    break;
             }
 
+            try {
+
+                if (total + nextPoint > n) {
 
 
-            buffer.append(text.charAt(i));
-            if (total >= n) {
-                string.add(String.valueOf(buffer));
-                buffer = new StringBuffer();
-                total = 0;
+                    string.add(String.valueOf(buffer));
+                    buffer = new StringBuffer();
+                    total = 0;
+                }
+
+            }catch (Exception e){
+                nextPoint=0;
             }
 
         }
