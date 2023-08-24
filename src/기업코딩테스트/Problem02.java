@@ -9,34 +9,17 @@ public class Problem02 {
     }
 
     private static void fileReader() throws IOException {
-        File file = new File("C:/programing/data.json");
-        FileReader fileReader = new FileReader(file);
-        BufferedReader bufReader = new BufferedReader(fileReader);
 
-        System.out.println("bufReader = " + bufReader);
+        File file = new File("C:/programing/company/data.json");
 
+        try (Reader reader = new FileReader(file);
+            BufferedReader br = new BufferedReader(reader)){
+            String line;
+            while ((line = br.readLine()) != null) {
+                System.out.println(line);
+            }
 
-    }
-
-    private static String system(String[] lineText) {
-        String score = score(lineText);
-        String name = name(lineText);
-        int length = lineText.length;
-        for (int i = 0; i < length; i++) {
-            System.out.println("score = " + score);
-            System.out.println("name = " + name);
-
+        } catch (IOException e) {
         }
-        return score;
-    }
-
-    private static String score(String[] lineText) {
-        String score = lineText[1];
-        return score;
-    }
-
-    private static String name(String[] lineText) {
-        String name = lineText[2];
-        return name;
     }
 }
