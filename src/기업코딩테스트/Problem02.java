@@ -1,6 +1,7 @@
 package 기업코딩테스트;
 
 import java.io.*;
+import java.util.StringTokenizer;
 
 public class Problem02 {
     public static void main(String[] args) throws IOException {
@@ -9,17 +10,24 @@ public class Problem02 {
     }
 
     private static void fileReader() throws IOException {
+        try {
 
-        File file = new File("C:/programing/company/data.json");
 
-        try (Reader reader = new FileReader(file);
-            BufferedReader br = new BufferedReader(reader)){
+            BufferedReader reader = new BufferedReader(new FileReader("C:/programing/company/data.json"));
             String line;
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-            }
 
+
+            while ((line = reader.readLine()) != null) {
+                StringTokenizer tokenizer = new StringTokenizer(line, ",");
+
+                while (tokenizer.hasMoreTokens()) {
+                    String token = tokenizer.nextToken();
+                    System.out.println(token);
+                }
+            }
+            reader.close();
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
