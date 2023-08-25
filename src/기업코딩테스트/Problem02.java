@@ -3,6 +3,7 @@ package 기업코딩테스트;
 import java.io.*;
 import java.util.StringTokenizer;
 
+
 public class Problem02 {
     public static void main(String[] args) throws IOException {
 
@@ -22,6 +23,7 @@ public class Problem02 {
 
                 while (tokenizer.hasMoreTokens()) {
                     String token = tokenizer.nextToken();
+
                     System.out.println(token);
                 }
             }
@@ -29,5 +31,8 @@ public class Problem02 {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
+
+
 }

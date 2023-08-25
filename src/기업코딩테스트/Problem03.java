@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Problem03 {
     public static void main(String[] args) {
-        String text = "가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123";
-        int n = 20;
+        String text = "가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123가나다abc123\n";
+        int n = 15;
         List<String> strings = solution3(text, n);
 
 
@@ -69,7 +69,6 @@ public class Problem03 {
                     break;
             }
 
-            try {
 
                 if (total + nextPoint > n) {
 
@@ -78,10 +77,6 @@ public class Problem03 {
                     buffer = new StringBuffer();
                     total = 0;
                 }
-
-            }catch (Exception e){
-                nextPoint=0;
-            }
 
         }
 

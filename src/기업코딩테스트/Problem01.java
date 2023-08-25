@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class Problem01 {
 
     public static void main(String[] args) {
-//        int[] numbers = {3,30,5,34,9,1};
-        int[] numbers = {11,6,10,0};
-
+        int[] numbers = {3,30,5,34,9,1};
+//        int[] numbers = {11,6,10,0};
+//
 //        for (int i = 0; i < numbers.length; i++) {
         String s = solution1(numbers);
         System.out.println("result= " + s);
@@ -74,20 +74,24 @@ public class Problem01 {
         //길이 짧은 수 구하기
         boolean b = checkMin(lengthF, lengthL);
 
-
+        //첫번째 자리 비교
         if (firstValue.charAt(0) == compareValue.charAt(0)) {
+            //첫번째 값이 짧으면
             if (b) {
+                //비교값 2째가 더 크면 1번째값 리턴
                 if (compareValue.charAt(1) > compareValue.charAt(0)) {
                     return firstValue;
                 } else {
 //                    System.out.println("compareValue = " + compareValue);
                     return compareValue;
                 }
+                //짧은게 뒤에꺼면
             } else {
+
                 if (firstValue.charAt(1) > firstValue.charAt(0)) {
-                    return firstValue;
-                } else {
                     return compareValue;
+                } else {
+                    return firstValue;
                 }
 
             }
