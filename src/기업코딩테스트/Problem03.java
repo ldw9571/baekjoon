@@ -54,7 +54,6 @@ public class Problem03 {
 
             int nextPoint = 0;
 
-
             int nextNum = Character.getType(text.charAt(i + 1));
 
             switch (nextNum) {
