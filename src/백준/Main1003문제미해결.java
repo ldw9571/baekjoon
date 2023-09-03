@@ -2,7 +2,7 @@ package 백준;
 
 import java.util.Scanner;
 
-public class Main {
+public class Main1003문제미해결 {
     public static int fibonacci(int n) {
         if (n == 0) {
             System.out.println("return0");
