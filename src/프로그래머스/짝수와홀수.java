@@ -6,6 +6,7 @@ public class 짝수와홀수 {
         StringBuffer buffer = new StringBuffer();
         int num = 3;
 
+
         if (num % 2 == 0) {
             buffer.append("Even");
         }else {
