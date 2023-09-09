@@ -1,11 +1,12 @@
 package 프로그래머스;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class 나누어떨어지는숫자배열 {
     public static void main(String[] args) {
-        int[] arr = {3,2,6};
-        int divisor = 10;
+        int[] arr = {20,10,5,1,6,4,8,9};
+        int divisor = 5;
         int resultLength=0;
 
         int length = arr.length;
@@ -30,11 +31,15 @@ public class 나누어떨어지는숫자배열 {
             answer = new int[1];
             answer[0]=-1;
         }
+        String string1 = Arrays.toString(answer);
+        System.out.println("sort전 = " + string1);
+
+
         Arrays.sort(answer);
 
 
 
         String string = Arrays.toString(answer);
-        System.out.println("string = " + string);
+        System.out.println("sort후 = " + string);
     }
 }
