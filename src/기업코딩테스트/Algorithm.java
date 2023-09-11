@@ -1,8 +1,5 @@
 package 기업코딩테스트;
 
-import java.nio.Buffer;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Algorithm {
